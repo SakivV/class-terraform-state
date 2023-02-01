@@ -16,4 +16,17 @@
    - terraform apply target command
 
 # Instructions
-- Change bucket name and Dynamodb table name in ```version.tf``` file as per the bucket name and DynamoDB table created by you.
+We will do practice on various Terraform state scenario. For these scenario, you need to create S3 bucket and DynamoDB table(table name can be anything) but partition_key name should *LockID*.
+### Scenario 1 : Implement Backend without DynamoDB table.
+1. In ```version.tf``` file , comment DynamoDB table and have only S3 bucket. Please note that you need to change bucket name as per bucket you created.
+2. Clone this repo in separate folders on your machine. For example, Developer-A and Developer-B are performing actions. 
+3. Try creating 2 EC2 instance , for example Developer-A create these instances.
+4. Now imagine, business asks for number of EC2 instance should be 4. And now try performing this action from both folder like Developer-A and Developer-B performing same actions,making EC2 instance count to 4.
+5. Observe the action performed on AWS Console. Expected output should have 6 EC2 instances which is not as per business requirement.
+6. Clean your infrastructer with terraform destroy
+
+### Scenario 1 : Implement Backend with DynamoDB table.
+1. In ```version.tf``` file , uncomment DynamoDB table and have only S3 bucket. Please note that you need to change bucket name as per bucket you created.
+2. Now repeate above scenario.
+3. Either Developer-A or Developer-B will not able to perform operation if either of them performing operation. This is called Terraform State locking. This is useful in when we work in teams.
+
