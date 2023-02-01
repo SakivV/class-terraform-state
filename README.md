@@ -14,3 +14,6 @@
    - terraform taint
    - terraform untaint
    - terraform apply target command
+
+# Instructions
+- Change bucket name and Dynamodb table name in ```version.tf``` file as per the bucket name and DynamoDB table created by you.
