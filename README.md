@@ -25,7 +25,7 @@ We will do practice on various Terraform state scenario. For these scenario, you
 5. Observe the action performed on AWS Console. Expected output should have 6 EC2 instances which is not as per business requirement.
 6. Clean your infrastructer with terraform destroy
 
-### Scenario 1 : Implement Backend with DynamoDB table.
+### Scenario 2 : Implement Backend with DynamoDB table.
 1. In ```version.tf``` file , uncomment DynamoDB table and have only S3 bucket. Please note that you need to change bucket name as per bucket you created.
 2. Now repeate above scenario.
 3. Either Developer-A or Developer-B will not able to perform operation if either of them performing operation. This is called Terraform State locking. This is useful in when we work in teams.
